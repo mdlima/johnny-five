@@ -117,9 +117,10 @@ module.exports = function(grunt) {
     watch: {
       src: {
         files: primaryFiles,
-        tasks: ["default"],
+        tasks: ["nodeunit"],
         options: {
           interrupt: true,
+          // spawn: false,
         },
       }
     }
@@ -130,6 +131,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-jshint");
   grunt.loadNpmTasks("grunt-jsbeautifier");
   grunt.loadNpmTasks("grunt-jscs");
+
+  // On watch events configure jshint:all to only run on changed file
+  grunt.event.on("watch", function(action, filepath) {
+    var filename = filepath.split("\\").pop().split("/").pop();
+    grunt.config("watch.src.tasks", [
+      "nodeunit:file:" + filename
+    ]);
+  });
 
   // grunt.registerTask("beautify", ["jsbeautifier"]);
 
