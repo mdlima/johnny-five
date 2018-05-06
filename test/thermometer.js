@@ -36,7 +36,7 @@ exports.tearDown = function(done) {
 
 function createAnalog(toCelsius) {
   return new Thermometer({
-    pins: ["A0"],
+    pin: "A0",
     toCelsius: toCelsius,
     freq: this.freq,
     board: this.board
@@ -283,7 +283,7 @@ exports["Thermometer -- ANALOG"] = {
     this.board.io.aref = 3.3;
     this.thermometer = new Thermometer({
       aref: 1.8,
-      pins: ["A0"],
+      pin: "A0",
       freq: this.freq,
       board: this.board
     });
@@ -353,7 +353,7 @@ exports["Thermometer -- ANALOG"] = {
     setUp: function(done) {
       this.thermometer = new Thermometer({
         controller: "LM335",
-        pins: ["A0"],
+        pin: "A0",
         freq: 100,
         board: this.board
       });
@@ -394,7 +394,7 @@ exports["Thermometer -- ANALOG"] = {
     setUp: function(done) {
       this.thermometer = new Thermometer({
         controller: "LM35",
-        pins: ["A0"],
+        pin: "A0",
         freq: 100,
         board: this.board
       });
@@ -438,7 +438,7 @@ exports["Thermometer -- ANALOG"] = {
     setUp: function(done) {
       this.thermometer = new Thermometer({
         controller: "TMP36",
-        pins: ["A0"],
+        pin: "A0",
         freq: this.freq,
         board: this.board
       });
