@@ -268,7 +268,7 @@
   },
   "optionalDependencies": {
     "browser-serialport": "latest",
-    "firmata": "^0.19.0",
+    "firmata": "mdlima/firmata.js#local-prod",
     "serialport": "^6.0.4"
   },
   "devDependencies": {
